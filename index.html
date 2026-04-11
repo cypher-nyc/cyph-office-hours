@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>cyph - office hours</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nixie+One&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="game-shell">
+      <div class="bg-layer shell" id="bg-shell" style="opacity: 1"></div>
+      <div
+        class="bg-layer nextsteps"
+        id="bg-nextsteps"
+        style="opacity: 0"
+      ></div>
+      <div class="city-sil" id="citySil"></div>
+
+      <div class="hud">
+        <div class="hud-logo">cyph.</div>
+        <nav class="hud-nav">
+          <button class="hud-nav-btn active" onclick="goTo(0)">cyph</button>
+          <span class="hud-nav-sep">/</span>
+          <button class="hud-nav-btn" onclick="goTo(1)">founders</button>
+          <span class="hud-nav-sep">/</span>
+          <button class="hud-nav-btn" onclick="goTo(2)">building</button>
+          <span class="hud-nav-sep">/</span>
+          <button class="hud-nav-btn" onclick="goTo(3)">host</button>
+          <span class="hud-nav-sep">/</span>
+          <button class="hud-nav-btn" onclick="goTo(5)">close</button>
+        </nav>
+        <div class="hud-counter" id="hudCtr">01/06</div>
+      </div>
+      <div class="xp-bar"><div class="xp-fill" id="xpFill"></div></div>
+
+      <!-- LEVEL 0: TITLE -->
+      <div class="slide active" id="s0" style="align-items: flex-start">
+        <h1 style="font-size: 128px; color: #13293d; margin-left: -5px">
+          cyph<span>.</span>
+        </h1>
+        <p class="sub">the new underground to wrestle with ideas.</p>
+      </div>
+
+      <!-- LEVEL 1: FOUNDERS -->
+      <div class="slide" id="s1">
+        <h2>founders</h2>
+        <div class="badge-cards">
+          <!-- JALEN -->
+          <div class="badge-card" id="charA">
+            <div class="badge-header">
+              <a
+                class="badge-linkedin"
+                href="https://www.linkedin.com/in/jalen-d-333220156/"
+                target="_blank"
+                rel="noopener"
+                ><img src="assets/icons/linkedin.webp" alt="LinkedIn"
+              /></a>
+              <div class="badge-title">jalen daniels</div>
+              <div class="badge-subtitle">
+                <span class="badge-pill">philosopher</span>
+                <span class="badge-pill">technologist</span>
+                <span class="badge-pill">strategist</span>
+              </div>
+            </div>
+            <div class="badge-body">
+              <div class="badge-photo">
+                <img
+                  src="assets/people/jalen_headshot.png"
+                  alt="jalen daniels"
+                />
+              </div>
+              <div class="badge-fields">
+                <div class="badge-field">
+                  <span class="badge-label">role</span>
+                  <span class="badge-value">strategy lead</span>
+                </div>
+                <div class="badge-field">
+                  <span class="badge-label">alma mater</span>
+                  <span class="badge-value">harvard</span>
+                </div>
+                <div class="badge-field">
+                  <span class="badge-label">previous work</span>
+                  <span class="badge-value">ex-mckinsey</span>
+                </div>
+              </div>
+              <div class="badge-stats">
+                <div class="badge-stat">
+                  <span class="badge-stat-label">critical thinking</span>
+                  <div class="badge-stat-track">
+                    <div
+                      class="badge-stat-fill"
+                      data-fill="99"
+                      style="width: 0%; background: var(--blue)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="badge-stat">
+                  <span class="badge-stat-label">strategy</span>
+                  <div class="badge-stat-track">
+                    <div
+                      class="badge-stat-fill"
+                      data-fill="99"
+                      style="width: 0%; background: #6d1a36"
+                    ></div>
+                  </div>
+                </div>
+                <div class="badge-stat">
+                  <span class="badge-stat-label">vision</span>
+                  <div class="badge-stat-track">
+                    <div
+                      class="badge-stat-fill"
+                      data-fill="99"
+                      style="width: 0%; background: var(--yellow)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="badge-stat">
+                  <span class="badge-stat-label">handyman</span>
+                  <div class="badge-stat-track">
+                    <div
+                      class="badge-stat-fill"
+                      data-fill="9"
+                      style="width: 0%; background: #ec4e20"
+                    ></div>
+                  </div>
+                </div>
+                <div class="badge-stat">
+                  <span class="badge-stat-label">classical ballet</span>
+                  <div class="badge-stat-track">
+                    <div
+                      class="badge-stat-fill"
+                      data-fill="99"
+                      style="width: 0%; background: #13293d"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="badge-front-bottom">
+              <div class="badge-field">
+                <span class="badge-label">researching</span>
+                <span class="badge-value"
+                  >transhumanism &middot; nietzsche &middot; agriculture</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- BRYAN -->
+          <div class="badge-card" id="charB">
+            <div class="badge-header">
+              <a
+                class="badge-linkedin"
+                href="https://www.linkedin.com/in/bcashofficial/"
+                target="_blank"
+                rel="noopener"
+                ><img src="assets/icons/linkedin.webp" alt="LinkedIn"
+              /></a>
+              <div class="badge-title">bryan cash</div>
+              <div class="badge-subtitle">
+                <span class="badge-pill">computer scientist</span>
+                <span class="badge-pill">sports savant</span>
+                <span class="badge-x">x</span> optimizer
+              </div>
+            </div>
+            <div class="badge-body">
+              <div class="badge-photo">
+                <img
+                  src="assets/people/bryan_headshot.png"
+                  alt="bryan cash"
+                  style="object-position: center 30%"
+                />
+              </div>
+              <div class="badge-fields">
+                <div class="badge-field">
+                  <span class="badge-label">role</span>
+                  <span class="badge-value">technology lead</span>
+                </div>
+                <div class="badge-field">
+                  <span class="badge-label">alma mater</span>
+                  <span class="badge-value">syracuse</span>
+                </div>
+                <div class="badge-field">
+                  <span class="badge-label">previous work</span>
+                  <span class="badge-value">ex-wapo</span>
+                </div>
+              </div>
+              <div class="badge-stats">
+                <div class="badge-stat">
+                  <span class="badge-stat-label">systems design</span>
+                  <div class="badge-stat-track">
+                    <div
+                      class="badge-stat-fill"
+                      data-fill="99"
+                      style="width: 0%; background: var(--blue)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="badge-stat">
+                  <span class="badge-stat-label">enterprise apps</span>
+                  <div class="badge-stat-track">
+                    <div
+                      class="badge-stat-fill"
+                      data-fill="99"
+                      style="width: 0%; background: #6d1a36"
+                    ></div>
+                  </div>
+                </div>
+                <div class="badge-stat">
+                  <span class="badge-stat-label">big data</span>
+                  <div class="badge-stat-track">
+                    <div
+                      class="badge-stat-fill"
+                      data-fill="99"
+                      style="width: 0%; background: var(--yellow)"
+                    ></div>
+                  </div>
+                </div>
+                <div class="badge-stat">
+                  <span class="badge-stat-label">bowling</span>
+                  <div class="badge-stat-track">
+                    <div
+                      class="badge-stat-fill"
+                      data-fill="9"
+                      style="width: 0%; background: #ec4e20"
+                    ></div>
+                  </div>
+                </div>
+                <div class="badge-stat">
+                  <span class="badge-stat-label">any card game</span>
+                  <div class="badge-stat-track">
+                    <div
+                      class="badge-stat-fill"
+                      data-fill="99"
+                      style="width: 0%; background: #13293d"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="badge-front-bottom">
+              <div class="badge-field">
+                <span class="badge-label">researching</span>
+                <span class="badge-value"
+                  >technofeudalism &middot; neuroathletics &middot; greek
+                  philosophy</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEVEL 2.5: WHAT WE ARE BUILDING (isometric layer stack) -->
+      <div class="slide" id="s2">
+        <h2>what we are building</h2>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 56px;
+            width: 100%;
+            height: 100%;
+            padding: 40px 0;
+          "
+        >
+          <!-- Stacked isometric layers -->
+          <div class="layer-stack">
+            <div class="iso-layer" id="isoL3">
+              <img class="lyr-color" src="assets/layers/l3-color.png" />
+              <img class="lyr-bw" src="assets/layers/l3-bw.png" />
+            </div>
+            <div class="iso-layer" id="isoL2">
+              <img class="lyr-color" src="assets/layers/l2-color.png" />
+              <img class="lyr-bw" src="assets/layers/l2-bw.png" />
+            </div>
+            <div class="iso-layer" id="isoL1">
+              <img class="lyr-color" src="assets/layers/l1-color.png" />
+              <img class="lyr-bw" src="assets/layers/l1-bw.png" />
+            </div>
+          </div>
+
+          <!-- Annotation panel -->
+          <div class="layer-anno" id="layerAnno" style="opacity: 0">
+            <span class="layer-anno-num" id="layerNum">01</span>
+            <h3 class="layer-anno-title" id="layerTitle">underground</h3>
+            <p class="layer-anno-sub" id="layerSub">
+              where you become dangerous.
+            </p>
+            <p class="layer-anno-desc" id="layerDesc">
+              a living world of buried artifacts, suppressed ideas, and
+              unexplored intellectual territory — that maps your thinking over
+              time.
+            </p>
+            <div class="layer-dots">
+              <span class="layer-dot active" id="ldot1"></span>
+              <span class="layer-dot" id="ldot2"></span>
+              <span class="layer-dot" id="ldot3"></span>
+              <span class="layer-dot" id="ldot4"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEVEL 11: WHAT WE HAND YOU -->
+      <div class="slide" id="s3">
+        <h2>what we hand you.</h2>
+
+        <div style="width: 1100px; margin-top: 40px">
+          <!-- split screen: 2 columns -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 0;
+              margin-top: 48px;
+              min-height: 520px;
+            "
+          >
+            <!-- 01 -->
+            <div
+              style="
+                padding: 32px 40px 32px 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+              "
+            >
+              <div style="min-height: 200px">
+                <div
+                  style="
+                    display: inline-block;
+                    font-family:
+                      &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+                    font-size: 13px;
+                    color: #fff;
+                    padding: 6px 14px;
+                    border-radius: 20px;
+                    background: #ec4e20;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    margin-bottom: 18px;
+                  "
+                >
+                  01 &middot; a deeper audience
+                </div>
+                <p
+                  style="
+                    font-family:
+                      &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+                    font-size: 18px;
+                    color: var(--charcoal-muted);
+                    line-height: 1.6;
+                    margin: 0;
+                  "
+                >
+                  the intellectually curious. always. we route people on their
+                  interests
+                  <strong style="color: var(--charcoal)">and</strong> their
+                  unexplored territory &mdash; so you&rsquo;re always in front
+                  of a room that actually wants to wrestle with the work.
+                </p>
+              </div>
+
+              <!-- underground transit map -->
+              <div
+                style="
+                  background: rgba(20, 18, 15, 0.92);
+                  border-radius: 14px;
+                  border: 2px solid rgba(242, 140, 40, 0.15);
+                  padding: 14px;
+                  margin-top: 8px;
+                "
+              >
+                <svg
+                  viewBox="0 0 380 360"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="width: 100%; display: block"
+                >
+                  <polyline points="50,25 50,130 170,130 170,250 170,340" stroke="#FBAF00" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" fill="none" />
+                  <polyline points="140,25 140,80 290,80 290,190 290,340" stroke="#EC4E20" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" fill="none" />
+                  <polyline points="330,25 330,165 90,165 90,300 90,340" stroke="#6D1A36" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" fill="none" />
+                  <polyline points="240,25 240,270 360,270 360,340" stroke="#608FE6" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" fill="none" />
+
+                  <!-- philosophy stops -->
+                  <circle cx="50" cy="25" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="64" y="29" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">plato</text>
+                  <circle cx="50" cy="130" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="30" y="120" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="middle">kant</text>
+                  <circle cx="170" cy="250" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="184" y="245" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">baldwin</text>
+                  <circle cx="170" cy="340" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="184" y="344" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">wynter</text>
+
+                  <!-- sports stops -->
+                  <circle cx="140" cy="25" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="154" y="29" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">ali</text>
+                  <circle cx="140" cy="80" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="120" y="70" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="middle">iverson</text>
+                  <circle cx="290" cy="190" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="304" y="186" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">osaka</text>
+                  <circle cx="290" cy="340" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="270" y="335" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="end">kaepernick</text>
+
+                  <!-- theology stops -->
+                  <circle cx="330" cy="25" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="310" y="18" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="end">aquinas</text>
+                  <circle cx="330" cy="165" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="344" y="161" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">cone</text>
+                  <circle cx="90" cy="300" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="70" y="295" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="end">heschel</text>
+                  <circle cx="90" cy="340" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="70" y="344" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="end">sojourner</text>
+
+                  <!-- architecture stops -->
+                  <circle cx="240" cy="25" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="254" y="29" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">olmsted</text>
+                  <circle cx="240" cy="270" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="224" y="263" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="end">adjaye</text>
+                  <circle cx="360" cy="270" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="350" y="263" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="end">lin</text>
+                  <circle cx="360" cy="340" r="5.5" fill="#1a1a18" stroke="#fff" stroke-width="2.5" />
+                  <text x="350" y="335" fill="rgba(255,255,255,0.75)" font-size="11" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="end">gang</text>
+                </svg>
+              </div>
+            </div>
+
+            <!-- 02 -->
+            <div
+              style="
+                padding: 32px 0 32px 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+              "
+            >
+              <div style="min-height: 200px">
+                <div
+                  style="
+                    display: inline-block;
+                    font-family:
+                      &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+                    font-size: 13px;
+                    color: #fff;
+                    padding: 6px 14px;
+                    border-radius: 20px;
+                    background: #608fe6;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    margin-bottom: 18px;
+                  "
+                >
+                  02 &middot; your archive, resurfaced
+                </div>
+                <p
+                  style="
+                    font-family:
+                      &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+                    font-size: 18px;
+                    color: var(--charcoal-muted);
+                    line-height: 1.6;
+                    margin: 0;
+                  "
+                >
+                  our underground is built from niche collaborators &mdash;
+                  archives, estates, independent publications &mdash; and every
+                  artifact is
+                  <strong style="color: var(--charcoal)">human-produced.</strong>
+                  never ai slop. your books, papers, essays and talks drop in
+                  as
+                  <strong style="color: var(--charcoal)">living artifacts</strong>
+                </p>
+              </div>
+
+              <!-- floating target resource-partner logos — 3 columns, last row centered -->
+              <div
+                style="
+                  flex: 1;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 28px 36px;
+                    width: 100%;
+                  "
+                >
+                  <div style="display: flex; align-items: center; justify-content: center; padding: 10px">
+                    <img
+                      src="assets/brands/jstor.png"
+                      alt="jstor"
+                      style="max-height: 64px; max-width: 100%; object-fit: contain; animation: drift1 9s ease-in-out infinite;"
+                    />
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: center; padding: 10px">
+                    <img
+                      src="assets/brands/schomburg.png"
+                      alt="schomburg center"
+                      style="max-height: 64px; max-width: 100%; object-fit: contain; filter: invert(1); animation: drift2 10s ease-in-out infinite;"
+                    />
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: center; padding: 10px">
+                    <img
+                      src="assets/brands/sage.png"
+                      alt="sage"
+                      style="max-height: 64px; max-width: 100%; object-fit: contain; animation: drift3 10s ease-in-out infinite;"
+                    />
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: center; padding: 10px">
+                    <img
+                      src="assets/brands/internet_archive.png"
+                      alt="internet archive"
+                      style="max-height: 64px; max-width: 100%; object-fit: contain; filter: invert(1); animation: drift4 9s ease-in-out infinite;"
+                    />
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: center; padding: 10px">
+                    <img
+                      src="assets/brands/arxiv.png"
+                      alt="arxiv"
+                      style="max-height: 64px; max-width: 100%; object-fit: contain; animation: drift5 8.5s ease-in-out infinite;"
+                    />
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: center; padding: 10px">
+                    <img
+                      src="assets/brands/studio_museum.png"
+                      alt="studio museum in harlem"
+                      style="max-height: 64px; max-width: 100%; object-fit: contain; animation: drift6 10.5s ease-in-out infinite;"
+                    />
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: center; padding: 10px">
+                    <img
+                      src="assets/brands/anthology_film.png"
+                      alt="anthology film archives"
+                      style="max-height: 64px; max-width: 100%; object-fit: contain; animation: drift1 11s ease-in-out infinite;"
+                    />
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: center; padding: 10px">
+                    <img
+                      src="assets/brands/dust_to_digital.png"
+                      alt="dust to digital"
+                      style="max-height: 64px; max-width: 100%; object-fit: contain; animation: drift2 9.5s ease-in-out infinite;"
+                    />
+                  </div>
+                  <div style="display: flex; align-items: center; justify-content: center; padding: 10px">
+                    <img
+                      src="assets/brands/fifa.png"
+                      alt="fifa museum"
+                      style="max-height: 64px; max-width: 100%; object-fit: contain; filter: invert(1); animation: drift3 10s ease-in-out infinite;"
+                    />
+                  </div>
+                  <!-- 10th logo: centered in its own row -->
+                  <div style="grid-column: 2; display: flex; align-items: center; justify-content: center; padding: 10px">
+                    <img
+                      src="assets/brands/chronicle_higher_ed.png"
+                      alt="chronicle of higher education"
+                      style="max-height: 64px; max-width: 100%; object-fit: contain; animation: drift4 11s ease-in-out infinite;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LEVEL 12: SCALE TRAJECTORY -->
+      <div class="slide" id="s4">
+        <h2>we&rsquo;re venture backed.</h2>
+        <div style="width: 1100px; margin-top: 18px">
+          <p
+            style="
+              font-family:
+                &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+              font-weight: 700;
+              font-size: 26px;
+              color: var(--charcoal);
+              line-height: 1.25;
+              margin: 0 0 36px 0;
+              max-width: 860px;
+            "
+          >
+            we&rsquo;d love to work with you now &mdash; and when we blow up.
+          </p>
+
+          <!-- trajectory chart -->
+          <div>
+            <svg
+              viewBox="0 0 1100 320"
+              style="width: 100%; height: auto; overflow: visible"
+            >
+              <defs>
+                <linearGradient
+                  id="traj-area"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop
+                    offset="0%"
+                    stop-color="#ec4e20"
+                    stop-opacity="0.28"
+                  />
+                  <stop
+                    offset="100%"
+                    stop-color="#ec4e20"
+                    stop-opacity="0"
+                  />
+                </linearGradient>
+                <linearGradient
+                  id="traj-stroke"
+                  x1="0"
+                  y1="0"
+                  x2="1"
+                  y2="0"
+                >
+                  <stop offset="0%" stop-color="#fbaf00" />
+                  <stop offset="50%" stop-color="#ec4e20" />
+                  <stop offset="100%" stop-color="#6d1a36" />
+                </linearGradient>
+              </defs>
+
+              <!-- horizontal guides -->
+              <line
+                x1="60"
+                y1="40"
+                x2="1060"
+                y2="40"
+                stroke="rgba(0,0,0,0.06)"
+                stroke-width="1"
+              />
+              <line
+                x1="60"
+                y1="100"
+                x2="1060"
+                y2="100"
+                stroke="rgba(0,0,0,0.06)"
+                stroke-width="1"
+              />
+              <line
+                x1="60"
+                y1="160"
+                x2="1060"
+                y2="160"
+                stroke="rgba(0,0,0,0.06)"
+                stroke-width="1"
+              />
+              <line
+                x1="60"
+                y1="220"
+                x2="1060"
+                y2="220"
+                stroke="rgba(0,0,0,0.06)"
+                stroke-width="1"
+              />
+              <line
+                x1="60"
+                y1="260"
+                x2="1060"
+                y2="260"
+                stroke="rgba(0,0,0,0.12)"
+                stroke-width="1"
+              />
+
+              <!-- area under curve -->
+              <path
+                d="M 80 260 L 325 220 L 570 160 L 815 100 L 1060 40 L 1060 260 L 80 260 Z"
+                fill="url(#traj-area)"
+              />
+
+              <!-- trajectory line -->
+              <path
+                d="M 80 260 L 325 220 L 570 160 L 815 100 L 1060 40"
+                fill="none"
+                stroke="url(#traj-stroke)"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <!-- 1K · today -->
+              <circle
+                cx="80"
+                cy="260"
+                r="8"
+                fill="#fbaf00"
+                stroke="#ede8de"
+                stroke-width="3"
+              />
+              <text
+                x="80"
+                y="238"
+                text-anchor="middle"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-weight="700"
+                font-size="24"
+                fill="#13293d"
+              >
+                1K
+              </text>
+              <text
+                x="80"
+                y="288"
+                text-anchor="middle"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-size="12"
+                fill="#13293d"
+                opacity="0.6"
+              >
+                today
+              </text>
+
+              <!-- 10K -->
+              <circle
+                cx="325"
+                cy="220"
+                r="8"
+                fill="#fbaf00"
+                stroke="#ede8de"
+                stroke-width="3"
+              />
+              <text
+                x="325"
+                y="198"
+                text-anchor="middle"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-weight="700"
+                font-size="24"
+                fill="#13293d"
+              >
+                10K
+              </text>
+
+              <!-- 100K -->
+              <circle
+                cx="570"
+                cy="160"
+                r="8"
+                fill="#ec4e20"
+                stroke="#ede8de"
+                stroke-width="3"
+              />
+              <text
+                x="570"
+                y="138"
+                text-anchor="middle"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-weight="700"
+                font-size="24"
+                fill="#13293d"
+              >
+                100K
+              </text>
+
+              <!-- 1M -->
+              <circle
+                cx="815"
+                cy="100"
+                r="8"
+                fill="#6d1a36"
+                stroke="#ede8de"
+                stroke-width="3"
+              />
+              <text
+                x="815"
+                y="78"
+                text-anchor="middle"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-weight="700"
+                font-size="24"
+                fill="#13293d"
+              >
+                1M
+              </text>
+
+              <!-- 3M -->
+              <circle
+                cx="1060"
+                cy="40"
+                r="10"
+                fill="#6d1a36"
+                stroke="#ede8de"
+                stroke-width="3"
+              />
+              <text
+                x="1060"
+                y="18"
+                text-anchor="end"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-weight="700"
+                font-size="30"
+                fill="#6d1a36"
+              >
+                3M
+              </text>
+              <text
+                x="1060"
+                y="288"
+                text-anchor="end"
+                font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+                font-size="12"
+                fill="#13293d"
+                opacity="0.6"
+              >
+                community within the next 1-3 years
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- LEVEL 15: CLOSE -->
+      <div class="slide" id="s5">
+        <h1 style="font-size: 48px; color: #13293d">become an office hours host.</h1>
+        <p class="sub" style="margin-top: 4px">
+          cash@smack.live &middot; jalen@smack.live
+        </p>
+        <p
+          class="sub"
+          style="margin-top: 8px; font-size: 12px; color: #13293d; opacity: 0.5"
+        >
+          (forgive the rebrand. we recently changed from smack to cyph)
+        </p>
+      </div>
+
+      <div class="xp-burst" id="xpBurst">+1000 XP</div>
+
+      <div class="bottom-hud">
+        <div class="hud-bars">
+          <div class="hud-bar">
+            <div class="hud-bar-label">research</div>
+            <div class="hud-bar-track">
+              <div class="hud-bar-fill" id="bar0" style="width: 10%"></div>
+            </div>
+          </div>
+          <div class="hud-bar">
+            <div class="hud-bar-label">community</div>
+            <div class="hud-bar-track">
+              <div class="hud-bar-fill" id="bar1" style="width: 10%"></div>
+            </div>
+          </div>
+          <div class="hud-bar">
+            <div class="hud-bar-label">revenue</div>
+            <div class="hud-bar-track">
+              <div class="hud-bar-fill" id="bar2" style="width: 5%"></div>
+            </div>
+          </div>
+          <div class="hud-bar">
+            <div class="hud-bar-label">impact</div>
+            <div class="hud-bar-track">
+              <div class="hud-bar-fill" id="bar3" style="width: 5%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-gel">
+          <button id="navPrev">&#8592;</button
+          ><button id="navNext">&#8594;</button>
+        </div>
+        <div class="bhud-counter" id="bhudCtr">01/06</div>
+      </div>
+    </div>
+    <!-- end game-shell -->
+
+    <div id="auth-gate" aria-label="access gate">
+      <div class="auth-panel">
+        <!-- reuses the same station-sign element shown on s4 — same dark
+             placard, same C/Y/P/H route bullets — so the gate reads as
+             slide zero of the deck rather than a separate auth screen -->
+        <div class="station-sign auth-sign">
+          <div class="station-name">we're the new underground.</div>
+          <div class="station-bullets">
+            <span class="station-bullet paprika">C</span
+            ><span class="station-bullet cornflower">Y</span
+            ><span class="station-bullet amber">P</span
+            ><span class="station-bullet amaranth">H</span>
+          </div>
+        </div>
+        <form id="auth-form" autocomplete="off">
+          <input
+            id="auth-input"
+            type="email"
+            inputmode="email"
+            autocomplete="off"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+            placeholder="enter your email..."
+          />
+          <button type="submit">enter</button>
+        </form>
+        <div id="auth-err">&nbsp;</div>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="deck.js"></script>
+  </body>
+</html>
