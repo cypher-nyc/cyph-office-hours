@@ -10,7 +10,7 @@ No typology of "who we want" (experts can be anyone). The pitch is rooted in the
 
 Trimmed from the venue-partnerships scaffold — the "why we want you on cyph." and "the underground." slides were intentionally removed, "what we hand you" lost its standalone slide and was merged into the close, and the isometric "what we are building." slide was added (ported from `cyph-deck`'s how-it-works slide).
 
-- `s0` title — "cyph." / "the new underground to wrestle with ideas."
+- `s0` title — "cyph." / "the new underground for ideas."
 - `s1` founders — Jalen + Bryan badges (unchanged).
 - `s2` **what we are building.** — Stacked isometric layer stack copied from `cyph-deck` s5 ("how it works"). Same three layer images (l1/l2/l3 color+bw) and same 4-step layer annotation panel (underground → cyph → irl → ∞). Header reads "what we are building" instead of "how it works". The original `cyph-deck` layer copy is kept verbatim (including `irl`: "touch grass." and the ∞ panel). Sub-step navigation (1–4) cycles through the layer stack on this slide. This is the slide the `host` nav button targets.
 - `s3` **we're venture backed.** — SVG trajectory chart: 1K (today) → 10K → 100K → 1M → 3M. Subheadline "we'd love to work with you now — and when we blow up."
