@@ -1,5 +1,7 @@
 # CYPH — Office Hours Deck
 
+> Read `README.md` first - it is the canonical map of this repo (purpose, layout, who it talks to, run/test). This file holds only Claude-specific rules and incident history.
+
 ## What this is
 
 The office-hours recruiting deck for Cyph (cypher.nyc). A sibling to `cyph-deck` (investor pitch) and `cyph-venue-partnerships` (venue deck), built from the same HTML/CSS/JS shell but rewritten to recruit experts — academics, writers, practitioners, street-legends with earned knowledge — into hosting office hours on the platform.
@@ -38,7 +40,4 @@ Unchanged from cyph-deck — Cornflower `#608FE6`, Paprika `#EC4E20`, Deep Space
 
 ## Key files
 
-- `index.html` — all slide content
-- `styles.css` — all styles (shared, unchanged)
-- `deck.js` — navigation, animations, chapter mapping, layer-stack descriptions
-- `assets/` — shared tree copied from cyph-venue-partnerships at scaffold time
+The file map lives in `README.md` (Layout).
